@@ -20,7 +20,10 @@ defmodule YmnCanvasWeb.MessageLive.Index do
   end
 
   def create_data() do
-    fill_rect(Enum.random(10..300), Enum.random(10..300), Enum.random(1..5), Enum.random(1..5))
+    [
+      fill_rect(Enum.random(10..300), Enum.random(10..300), Enum.random(1..5), Enum.random(1..5)),
+      fill_rect(Enum.random(10..300), Enum.random(10..300), Enum.random(8..10), Enum.random(8..10))
+    ]
   end
 
   @doc """
