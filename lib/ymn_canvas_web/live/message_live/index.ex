@@ -7,8 +7,8 @@ defmodule YmnCanvasWeb.MessageLive.Index do
 
     {:ok,
      socket
-     |> assign(x: Enum.random(10..300))
-     |> assign(y: Enum.random(10..300))}
+     |> assign(data: create_data())
+    }
   end
 
   @impl true
@@ -17,7 +17,14 @@ defmodule YmnCanvasWeb.MessageLive.Index do
 
     {:noreply,
      socket
-     |> assign(x: Enum.random(10..300))
-     |> assign(y: Enum.random(10..300))}
+     |> assign(data: create_data())
+    }
+  end
+
+  defp create_data() do
+    %{
+      x: Enum.random(10..300),
+      y: Enum.random(10..300)
+    }
   end
 end
