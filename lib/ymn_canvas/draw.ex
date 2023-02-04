@@ -12,13 +12,43 @@ defmodule YmnCanvas.Draw do
     }
   end
 
-    @doc """
+  @doc """
   塗りつぶす色を指定する
   """
   def fill_style(style) do
     %{
       fn: "fillStyle",
       style: style
+    }
+  end
+
+  def stroke_style(style) do
+    %{
+      fn: "strokeStyle",
+      style: style
+    }
+  end
+
+  def begin_path() do
+    %{
+      fn: "beginPath"
+    }
+  end
+
+  def stroke() do
+    %{
+      fn: "stroke"
+    }
+  end
+
+  def arc(x, y, radius, start_angle, end_angle) do
+    %{
+      fn: "arc",
+      x: x,
+      y: y,
+      radius: radius,
+      start_angle: start_angle,
+      end_angle: end_angle
     }
   end
 end
