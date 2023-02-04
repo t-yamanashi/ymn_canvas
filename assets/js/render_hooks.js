@@ -31,6 +31,10 @@ const render_exec = (ctx, data) => {
             ctx.stroke();
         case 'arc':
             ctx.arc(data.x, data.y, data.radius, data.start_angle, data.end_angle)
+        case "moveTo":
+            ctx.moveTo(data.x, data.y);
+        case "lineTo":
+            ctx.lineTo(data.x, data.y);
         default:
             console.log("no function");
     }

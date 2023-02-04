@@ -31,6 +31,10 @@ defmodule YmnCanvasWeb.CanvasLive.Index do
       stroke_style("red"),
       begin_path(),
       arc(300, 200, 100, 0, 2 * :math.pi()),
+      move_to(0, 0),
+      line_to(100, 100),
+      move_to(400, 400),
+      line_to(500, 300),
       stroke()
     ]
   end

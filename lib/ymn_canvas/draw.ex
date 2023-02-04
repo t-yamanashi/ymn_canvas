@@ -51,4 +51,21 @@ defmodule YmnCanvas.Draw do
       end_angle: end_angle
     }
   end
+
+  def move_to(x, y) do
+    %{
+      fn: "moveTo",
+      x: x,
+      y: y,
+    }
+  end
+
+  def line_to(x, y) do
+    %{
+      fn: "lineTo",
+      x: x,
+      y: y,
+    }
+  end
+
 end
