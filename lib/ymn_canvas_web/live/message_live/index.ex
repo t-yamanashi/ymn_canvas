@@ -21,8 +21,8 @@ defmodule YmnCanvasWeb.MessageLive.Index do
 
   def create_data() do
     [
-      fill_rect(Enum.random(10..300), Enum.random(10..300), Enum.random(1..5), Enum.random(1..5)),
-      fill_rect(Enum.random(10..300), Enum.random(10..300), Enum.random(8..10), Enum.random(8..10))
+      fill_style(Enum.random(["red","green"])),
+      fill_rect(Enum.random(10..300), Enum.random(10..300), Enum.random(1..5), Enum.random(1..5))
     ]
   end
 
@@ -36,6 +36,16 @@ defmodule YmnCanvasWeb.MessageLive.Index do
       y: y,
       w: w,
       h: h
+    }
+  end
+
+    @doc """
+  塗りつぶす色を指定する
+  """
+  def fill_style(style) do
+    %{
+      fn: "fillStyle",
+      style: style
     }
   end
 end
