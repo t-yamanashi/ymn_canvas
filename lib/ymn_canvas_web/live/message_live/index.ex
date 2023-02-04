@@ -1,5 +1,6 @@
 defmodule YmnCanvasWeb.MessageLive.Index do
   use YmnCanvasWeb, :live_view
+  import YmnCanvas.Draw
 
   @impl true
   def mount(_params, _session, socket) do
@@ -24,28 +25,5 @@ defmodule YmnCanvasWeb.MessageLive.Index do
       fill_style(Enum.random(["red","green"])),
       fill_rect(Enum.random(10..300), Enum.random(10..300), Enum.random(1..5), Enum.random(1..5))
     ]
-  end
-
-  @doc """
-  四角で塗りつぶす
-  """
-  def fill_rect(x, y, w, h) do
-    %{
-      fn: "fillRect",
-      x: x,
-      y: y,
-      w: w,
-      h: h
-    }
-  end
-
-    @doc """
-  塗りつぶす色を指定する
-  """
-  def fill_style(style) do
-    %{
-      fn: "fillStyle",
-      style: style
-    }
   end
 end
