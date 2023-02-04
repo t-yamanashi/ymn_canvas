@@ -7,8 +7,7 @@ defmodule YmnCanvasWeb.MessageLive.Index do
 
     {:ok,
      socket
-     |> assign(data: create_data())
-    }
+     |> assign(data: create_data())}
   end
 
   @impl true
@@ -17,17 +16,23 @@ defmodule YmnCanvasWeb.MessageLive.Index do
 
     {:noreply,
      socket
-     |> assign(data: create_data())
-    }
+     |> assign(data: create_data())}
   end
 
-  defp create_data() do
+  def create_data() do
+    fill_rect(Enum.random(10..300), Enum.random(10..300), Enum.random(1..5), Enum.random(1..5))
+  end
+
+  @doc """
+  四角で塗りつぶす
+  """
+  def fill_rect(x, y, w, h) do
     %{
       fn: "fillRect",
-      x: Enum.random(10..300),
-      y: Enum.random(10..300),
-      w: Enum.random(1..5),
-      h: Enum.random(1..5),
+      x: x,
+      y: y,
+      w: w,
+      h: h
     }
   end
 end
