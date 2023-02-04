@@ -17,7 +17,7 @@ defmodule YmnCanvasWeb.Router do
   scope "/", YmnCanvasWeb do
     pipe_through :browser
 
-    live "/", MessageLive.Index, :index
+    live "/", CanvasLive.Index, :index
   end
 
   # Other scopes may use custom stacks.

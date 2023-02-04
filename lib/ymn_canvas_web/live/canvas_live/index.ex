@@ -1,4 +1,4 @@
-defmodule YmnCanvasWeb.MessageLive.Index do
+defmodule YmnCanvasWeb.CanvasLive.Index do
   use YmnCanvasWeb, :live_view
   import YmnCanvas.Draw
 
