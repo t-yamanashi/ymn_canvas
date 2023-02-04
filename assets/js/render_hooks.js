@@ -24,6 +24,6 @@ const render_exec = (ctx, data) => {
         case 'fillStyle':
             ctx.fillStyle = data.style;
         default:
-            console.log("no functjion");
+            console.log("no function");
     }
 }
