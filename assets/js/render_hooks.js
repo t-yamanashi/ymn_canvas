@@ -2,7 +2,13 @@ export const render = (data) => {
     const canvas = document.querySelector('canvas');
     const ctx = canvas.getContext('2d');
     ctx.fillStyle = 'green';
-    ctx.fillRect(data.x, data.y, 10, 10);
+    switch (data.fn) {
+        case "fillRect":
+            ctx.fillRect(data.x, data.y, data.w, data.h);
+        default:
+            console.log("no functjion");
+    }
+    
   }
 
 

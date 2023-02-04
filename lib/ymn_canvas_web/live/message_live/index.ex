@@ -23,8 +23,11 @@ defmodule YmnCanvasWeb.MessageLive.Index do
 
   defp create_data() do
     %{
+      fn: "fillRect",
       x: Enum.random(10..300),
-      y: Enum.random(10..300)
+      y: Enum.random(10..300),
+      w: Enum.random(1..5),
+      h: Enum.random(1..5),
     }
   end
 end
