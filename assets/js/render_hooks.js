@@ -12,9 +12,13 @@ export const hooks = {
 }
 
 const render = (datas) => {
-    const canvas = document.querySelector('canvas');
-    const ctx = canvas.getContext('2d');
-    datas.map(data => render_exec(ctx, data));    
+    const canvasBuffer = document.querySelector('#canvas_buffer');
+    const ctxBuffer = canvasBuffer.getContext('2d');
+    datas.map(data => render_exec(ctxBuffer, data));    
+    const canvasArea = document.querySelector('#canvas_area');
+    const ctxArea = canvasArea.getContext('2d');
+    bufferImage = ctxBuffer.getImageData(0, 0, 1024, 768);
+    ctxArea.putImageData(bufferImage, 0, 0);
   }
 
 const render_exec = (ctx, data) => {
