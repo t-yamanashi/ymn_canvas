@@ -5,10 +5,7 @@ defmodule YmnCanvas.Draw do
   def fill_rect(x, y, w, h) do
     %{
       fn: "fillRect",
-      x: x,
-      y: y,
-      w: w,
-      h: h
+      arg: [x, y, w, h]
     }
   end
 
@@ -18,14 +15,14 @@ defmodule YmnCanvas.Draw do
   def fill_style(style) do
     %{
       fn: "fillStyle",
-      style: style
+      arg: style
     }
   end
 
   def stroke_style(style) do
     %{
       fn: "strokeStyle",
-      style: style
+      arg: style
     }
   end
 
@@ -44,28 +41,21 @@ defmodule YmnCanvas.Draw do
   def arc(x, y, radius, start_angle, end_angle) do
     %{
       fn: "arc",
-      x: x,
-      y: y,
-      radius: radius,
-      start_angle: start_angle,
-      end_angle: end_angle
+      arg: [x, y, radius, start_angle, end_angle]
     }
   end
 
   def move_to(x, y) do
     %{
       fn: "moveTo",
-      x: x,
-      y: y,
+      arg: [x, y]
     }
   end
 
   def line_to(x, y) do
     %{
       fn: "lineTo",
-      x: x,
-      y: y,
+      arg: [x, y]
     }
   end
-
 end

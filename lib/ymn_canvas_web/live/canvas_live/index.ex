@@ -38,14 +38,8 @@ defmodule YmnCanvasWeb.CanvasLive.Index do
     [
       fill_style("#000000"),
       fill_rect(0, 0, 1024, 768),
-      #fill_style(Enum.random(["red","green"])),
-      #/fill_rect(Enum.random(10..300), Enum.random(10..300), Enum.random(1..5), Enum.random(1..5))
-      # fill_style("#FFFFBB"),
-      # fill_rect(1, 1, 640, 480),
-      # fill_style("#FFFFDD"),
-      # fill_rect(10, 10, 620, 460),
       stroke_style("#00FF00"),
-      # begin_path(),
+      begin_path(),
       arc(xx, yy, 20, 0, 2 * :math.pi()),
       move_to(512, 384),
       line_to(xx, yy),
