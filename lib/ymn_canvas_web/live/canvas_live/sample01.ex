@@ -8,28 +8,29 @@ defmodule YmnCanvasWeb.CanvasLive.Sample01 do
 
     {:ok,
      socket
-     |> assign(data: [])
-     |> assign(x: 1)
-    }
+     |> assign(data: create_data())}
   end
 
   @impl true
   def handle_info(:update, socket) do
-    Process.send_after(self(), :update, 16)
-    x = socket.assigns.x  +  8
-    x = rem(x, 1024)
     {:noreply,
      socket
-     |> assign(x: x)
-     |> assign(data: create_data(x))}
+     |> assign(data: create_data())}
   end
 
-  def create_data(x) do
+  @impl true
+  def render(assigns) do
+    ~H"""
+    <.live_component module={YmnCanvasWeb.CanvasComponent} id="test" data={@data} />
+    """
+  end
+
+  def create_data() do
     [
       fill_style("#000000"),
       fill_rect(0, 0, 1024, 768),
       fill_style("#00FF00"),
-      fill_rect(x, 512, 50, 50),
+      fill_rect(200, 512, 50, 50)
     ]
   end
 end
