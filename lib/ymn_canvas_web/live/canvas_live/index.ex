@@ -32,8 +32,6 @@ defmodule YmnCanvasWeb.CanvasLive.Index do
 
     xx = :math.sin(x * 1.2 * r) * (x / 2)
     xx = xx + 512
-
-
     |> IO.inspect()
     [
       fill_style("#000000"),

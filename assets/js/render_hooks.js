@@ -22,15 +22,16 @@ const render = (datas) => {
   }
 
 const render_exec = (ctx, data) => {
-    switch (data.fn) {
+    [fn, ...arg] = data
+    switch (fn) {
         case "fillRect":
-            ctx.fillRect(...data.arg);
+            ctx.fillRect(...arg);
             break;
         case 'fillStyle':
-            ctx.fillStyle = data.arg;
+            ctx.fillStyle = arg;
             break;
         case 'strokeStyle':
-            ctx.strokeStyle = data.arg;
+            ctx.strokeStyle = arg;
             break;
         case 'beginPath':
             ctx.beginPath();
@@ -39,13 +40,13 @@ const render_exec = (ctx, data) => {
             ctx.stroke();
             break;
         case 'arc':
-            ctx.arc(...data.arg);
+            ctx.arc(...arg);
             break;
         case "moveTo":
-            ctx.moveTo(...data.arg);
+            ctx.moveTo(...arg);
             break;
         case "lineTo":
-            ctx.lineTo(...data.arg);
+            ctx.lineTo(...arg);
             break;
         default:
             console.log("no function");
