@@ -13,6 +13,7 @@ defmodule YmnCanvasWeb.CanvasLive.Sample02 do
 
   @impl true
   def handle_info(:update, socket) do
+    Process.send_after(self(), :update, 25)
     {:noreply,
      socket
      |> assign(data: create_data())}
@@ -27,13 +28,14 @@ defmodule YmnCanvasWeb.CanvasLive.Sample02 do
   end
 
   def create_data() do
+    now = DateTime.utc_now
     [
       fill_style("#000000"),
       fill_rect(0, 0, 1024, 768),
-      draw_image("#testimg", 10, 100),
+      draw_image("#testimg", 10 + now.second * 10, 100),
       font("48px serif"),
       fill_style("#00FF00"),
-      fill_text(DateTime.utc_now, 10, 300)
+      fill_text(now, 10, 300)
     ]
   end
 end
