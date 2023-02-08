@@ -38,4 +38,10 @@ const render_function = {
   arc: (ctx, arg) => ctx.arc(...arg),
   moveTo: (ctx, arg) => ctx.moveTo(...arg),
   lineTo: (ctx, arg) => ctx.lineTo(...arg),
+  drawImage: (ctx, arg) => {
+    [id, x, y] = arg;
+    const bufferImage = document.querySelector(id);
+    console.log(bufferImage);
+    ctx.drawImage(bufferImage, x, y);
+  },
 };

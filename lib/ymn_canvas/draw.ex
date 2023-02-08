@@ -14,4 +14,5 @@ defmodule YmnCanvas.Draw do
   def arc(x, y, radius, start_angle, end_angle), do: [:arc, x, y, radius, start_angle, end_angle]
   def move_to(x, y), do: [:moveTo, x, y]
   def line_to(x, y), do: [:lineTo, x, y]
+  def draw_image(id, x, y), do: [:drawImage, id, x, y]
 end
