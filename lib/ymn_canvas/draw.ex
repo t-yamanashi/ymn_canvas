@@ -15,4 +15,6 @@ defmodule YmnCanvas.Draw do
   def move_to(x, y), do: [:moveTo, x, y]
   def line_to(x, y), do: [:lineTo, x, y]
   def draw_image(id, x, y), do: [:drawImage, id, x, y]
+  def font(font), do: [:font, font]
+  def fill_text(text, x, y), do: [:fillText, text, x, y]
 end

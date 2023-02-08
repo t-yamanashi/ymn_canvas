@@ -44,4 +44,6 @@ const render_function = {
     console.log(bufferImage);
     ctx.drawImage(bufferImage, x, y);
   },
+  font: (ctx, arg) => ctx.font = arg,
+  fillText: (ctx, arg) => ctx.fillText(...arg),
 };
