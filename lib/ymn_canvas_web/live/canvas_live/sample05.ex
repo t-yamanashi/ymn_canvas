@@ -5,7 +5,6 @@ defmodule YmnCanvasWeb.CanvasLive.Sample05 do
   @impl true
   def mount(_params, _session, socket) do
     Process.send_after(self(), :update, 25)
-
     {:ok, socket |> assign(data: []) |> assign(character: %{})}
   end
 
@@ -23,32 +22,28 @@ defmodule YmnCanvasWeb.CanvasLive.Sample05 do
   def handle_event("key-down", %{"key" => "ArrowLeft"}, socket) do
     {:noreply,
      socket
-     |> assign(character: crate_character(socket.assigns.character, -30, 0))
-     |> assign(data: create_data(socket.assigns.character))}
+     |> assign(character: crate_character(socket.assigns.character, -30, 0))}
   end
 
   @impl true
   def handle_event("key-down", %{"key" => "ArrowRight"}, socket) do
     {:noreply,
      socket
-     |> assign(character: crate_character(socket.assigns.character, 30, 0))
-     |> assign(data: create_data(socket.assigns.character))}
+     |> assign(character: crate_character(socket.assigns.character, 30, 0))}
   end
 
   @impl true
   def handle_event("key-down", %{"key" => "ArrowUp"}, socket) do
     {:noreply,
      socket
-     |> assign(character: crate_character(socket.assigns.character, 0, -30))
-     |> assign(data: create_data(socket.assigns.character))}
+     |> assign(character: crate_character(socket.assigns.character, 0, -30))}
   end
 
   @impl true
   def handle_event("key-down", %{"key" => "ArrowDown"}, socket) do
     {:noreply,
      socket
-     |> assign(character: crate_character(socket.assigns.character, 0, 30))
-     |> assign(data: create_data(socket.assigns.character))}
+     |> assign(character: crate_character(socket.assigns.character, 0, 30))}
   end
 
   @impl true
