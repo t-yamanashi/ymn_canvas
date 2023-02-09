@@ -1,12 +1,5 @@
 defmodule YmnCanvas.Draw do
-  @doc """
-  四角で塗りつぶす
-  """
-  def fill_rect(x, y, w, h), do: ["fillRect", x, y, w, h]
-
-  @doc """
-  塗りつぶす色を指定する
-  """
+  def fill_rect(x, y, w, h), do: [:fillRect, x, y, w, h]
   def fill_style(style), do: [:fillStyle, style]
   def stroke_style(style), do: [:strokeStyle, style]
   def begin_path(), do: [:beginPath]
