@@ -13,19 +13,19 @@ defmodule YmnCanvasWeb.CanvasLive.Sample07 do
   @impl true
   def mount(_params, _session, socket) do
     Process.send_after(self(), :update, 25)
-    character = 1..4 |> Enum.map(fn _ -> Ymn.init() end)
+    character = 1..6 |> Enum.map(fn _ -> Ymn.init() end)
     {:ok, socket |> assign(data: []) |> assign(character: character)}
   end
 
   @impl true
   def handle_info(:update, socket) do
     Process.send_after(self(), :update, 25)
+
     {:noreply,
      socket
      |> assign(character: crate_character(socket.assigns.character))
      |> assign(data: create_data(socket.assigns.character))}
   end
-
 
   def crate_character(character) do
     character
