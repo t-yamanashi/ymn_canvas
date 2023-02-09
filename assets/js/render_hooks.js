@@ -46,4 +46,10 @@ const renderFunction = {
   },
   font: (ctx, arg) => ctx.font = arg,
   fillText: (ctx, arg) => ctx.fillText(...arg),
+  play: (_ctx ,arg)  => {
+    [id] = arg;
+    const audio = document.querySelector(id);
+    audio.currentTime = 0;
+    audio.play();
+  }
 };

@@ -23,6 +23,7 @@ defmodule YmnCanvasWeb.Router do
     live "/sample03", CanvasLive.Sample03, :index
     live "/sample04", CanvasLive.Sample04, :index
     live "/sample05", CanvasLive.Sample05, :index
+    live "/sample06", CanvasLive.Sample06, :index
 
   end
 

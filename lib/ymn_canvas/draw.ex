@@ -10,4 +10,5 @@ defmodule YmnCanvas.Draw do
   def draw_image(id, x, y), do: [:drawImage, id, x, y]
   def font(font), do: [:font, font]
   def fill_text(text, x, y), do: [:fillText, text, x, y]
+  def play(id), do: [:play, id]
 end
