@@ -9,6 +9,10 @@ export const hooks = {
   },
 };
 
+var AudioContext = window.AudioContext || window.webkitAudioContext;
+let audioCtx = new AudioContext();
+
+
 const render = (datas) => {
   const canvasBuffer = document.querySelector("#canvas_buffer");
   const ctxBuffer = canvasBuffer.getContext("2d");
@@ -44,12 +48,30 @@ const renderFunction = {
     console.log(bufferImage);
     ctx.drawImage(bufferImage, x, y);
   },
-  font: (ctx, arg) => ctx.font = arg,
+  font: (ctx, arg) => (ctx.font = arg),
   fillText: (ctx, arg) => ctx.fillText(...arg),
-  play: (_ctx ,arg)  => {
+  play: (_ctx, arg) => {
     [id] = arg;
     const audio = document.querySelector(id);
     audio.currentTime = 0;
     audio.play();
-  }
+  },
+  oscillator: (_ctx, arg) => {
+    console.log("tes5t");
+    audioCtx.close();
+    audioCtx = new AudioContext();
+    console.log(audioCtx);
+
+    [type, frequency, sec] = arg;
+
+    
+    const oscillator = audioCtx.createOscillator();
+    oscillator.type = type;
+    oscillator.frequency.setValueAtTime(frequency, 0);
+    oscillator.connect(audioCtx.destination);
+    oscillator.start(0);
+    oscillator.stop(sec);
+
+
+  },
 };

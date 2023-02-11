@@ -11,4 +11,5 @@ defmodule YmnCanvas.Draw do
   def font(font), do: [:font, font]
   def fill_text(text, x, y), do: [:fillText, text, x, y]
   def play(id), do: [:play, id]
+  def oscillator(type, frequency, sec), do: [:oscillator, type, frequency, sec]
 end
