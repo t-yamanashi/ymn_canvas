@@ -4,7 +4,7 @@ defmodule Ymn do
   end
 
   def init() do
-    %Unit{x: Enum.random(1..1000), y: Enum.random(1..700)}
+    %Unit{x: Enum.random(1..1000), y: Enum.random(1..700), fx: Enum.random(-5..5), fy: Enum.random(-10..10) }
   end
 
   def move(param = %Unit{}) do
