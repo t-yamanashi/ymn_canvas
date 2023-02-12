@@ -13,7 +13,7 @@ defmodule YmnCanvasWeb.CanvasLive.Sample09 do
   @impl true
   def mount(_params, _session, socket) do
     Process.send_after(self(), :update, 25)
-    character = 1..150 |> Enum.map(fn _ -> Ymn.init() end)
+    character = 1..20 |> Enum.map(fn _ -> Ymn.init() end)
     {:ok, socket |> assign(data: []) |> assign(character: character)}
   end
 
@@ -36,11 +36,12 @@ defmodule YmnCanvasWeb.CanvasLive.Sample09 do
     [
       fill_style("#000000"),
       fill_rect(0, 0, 1024, 768),
+      font("#{Enum.random(75..80)}px serif"),
       fill_style("#00FF00"),
 
     ] ++
       Enum.map(t, fn c ->
-        fill_rect(c.x, c.y, 3, 3)
+        fill_text("闘魂", c.x, c.y)
       end)
   end
 end
